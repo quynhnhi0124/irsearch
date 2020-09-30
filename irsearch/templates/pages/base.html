@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/brands.min.css">
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<div class="jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Search Engine</h1>
+        <p class="lead">Công cụ tìm kiếm trong file docx</p>
+        <form action="{% url 'result' %}">
+            <div class="input-group search">
+                <input type="text" class = "form-control" name = "search" placeholder="Nhập vào...">
+                <button type="button" class="btn btn-outline-primary"><a href="{% url 'result' %}">Search</a></button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% block content %}
+<div class="container">
+    <div class="head-thumbnail">
+        <h1 class = "display-4">Danh sách tác phẩm</h1>
+    </div>
+    <div class="content">
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên tác phẩm</th>
+                    <th scope="col">Tác giả</th>
+                    <th scope="col">NXB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope = "row">1</th>
+                    <td>Những người khốn khổ</td>
+                    <td>Victor Hugo</td>
+                    <td>1862</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}Kết quả tìm kiếm{% endblock  %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/result.css' %}"/>
+<link rel="shortcut icon" href="{% static 'favicon/favicon.png' %}"/>
+
+<div class="container">
+    <div class="head-thumbnail">
+        <h1 class = "display-4">Kết quả tìm kiếm</h1>
+    </div>
+    <div class="content">
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên tác phẩm</th>
+                    <th scope="col">Tác giả</th>
+                    <th scope="col">NXB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope = "row">1</th>
+                    <td>Những người khốn khổ</td>
+                    <td>Victor Hugo</td>
+                    <td>1862</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

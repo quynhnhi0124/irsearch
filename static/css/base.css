@@ -1,0 +1,23 @@
+html {
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+
+.jumbotron-fluid{
+    color: white;
+    background-color: rgb(112, 101, 184);
+    padding: 60px 0;
+    
+}
+
+.search button a{
+    color: white;
+}
+
+.head-thumbnail{
+    margin: 60px 0 30px;
+}
