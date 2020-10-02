@@ -46,12 +46,14 @@
                 </tr>
             </thead>
             <tbody>
+                {% for b in book %}
                 <tr>
-                    <th scope = "row">1</th>
-                    <td>Những người khốn khổ</td>
-                    <td>Victor Hugo</td>
-                    <td>1862</td>
+                    <th scope = "row">{{ b.id }}</th>
+                    <td>{{ b.ten_sach }}</td>
+                    <td>{{ b.ten_tac_gia }}</td>
+                    <td>{{ b.nam_xuat_ban }}</td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

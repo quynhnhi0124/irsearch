@@ -79,11 +79,14 @@ WSGI_APPLICATION = 'ir.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysql',
+        'NAME': 'irsearch',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES', innodb_strict_mode=1",
+        },
     }
 }
 
