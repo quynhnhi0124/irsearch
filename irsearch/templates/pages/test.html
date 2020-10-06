@@ -1,0 +1,17 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}Kết quả tìm kiếm{% endblock  %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/result.css' %}"/>
+<link rel="shortcut icon" href="{% static 'favicon/favicon.png' %}"/>
+
+<div class="container">
+    <div class="head-thumbnail">
+        <h1 class = "display-4">Chi tiet tac pham</h1>
+    </div>
+    <div class="content">
+        <p class = "text-justify">{{file_content}}</p>
+    </div>
+</div>
+
+{% endblock %}

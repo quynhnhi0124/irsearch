@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns = [
     path('', views.display, name='index'),
-    path('ketqua/', views.index_result, name = "result"),
+    path('<int:id>/', views.test, name = 'test'),
+    path('ketqua/', views.index_result, name = 'result'),
 ]

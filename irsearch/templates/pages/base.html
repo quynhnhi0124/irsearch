@@ -49,7 +49,7 @@
                 {% for b in book %}
                 <tr>
                     <th scope = "row">{{ b.id }}</th>
-                    <td>{{ b.ten_sach }}</td>
+                    <td><a href="{% url 'test' b.id %}">{{ b.ten_sach }}</a></td>
                     <td>{{ b.ten_tac_gia }}</td>
                     <td>{{ b.nam_xuat_ban }}</td>
                 </tr>
