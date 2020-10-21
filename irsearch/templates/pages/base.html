@@ -24,7 +24,7 @@
         <form action="{% url 'result' %}" method="POST">
             {% csrf_token %}
             <div class="input-group search">
-                <input type="text" class = "form-control" name = "search" placeholder="Nhập vào...">
+                <input type="text" class = "form-control" name = "search" placeholder="Nhập vào..." required>
                 <button type="button" class="btn btn-outline-primary"><a href="{% url 'result' %}">Search</a></button>
             </div>
 

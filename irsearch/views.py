@@ -1,13 +1,13 @@
 import re
+from os.path import isfile,join
+from os import listdir
 from django.shortcuts import render
 # from django.http import HttpResponse
 # from django.views import View
+from docx import Document
 from .models import Book
 # from docx import Document
 # Create your views here.
-from os import listdir
-from os.path import isfile,join
-from docx import Document
 
 
 # Hiện trang
@@ -19,6 +19,8 @@ def index_result(request):
     files = [f for f in listdir('static/docxfile') if isfile(join('static/docxfile',f))]
     # file result
     input_content = []
+    res = []
+    context = {}
     for file in files:
         document = Document('static//docxfile//' + file)
         fulltext = ''
@@ -27,21 +29,22 @@ def index_result(request):
 
         if name in fulltext:
             input_content += [file]
-            # print(input_content)
-            for i in input_content: 
-                noidung = Book.objects.all().filter(noi_dung=i)
-                context = {
-                    'noidung': noidung,
-                }
-            print(noidung)
+            # print(input_content)         
         else:
             # name = " "
-            print('Xâu tìm kiếm không có trong file '+ file)
+            # print('Xâu tìm kiếm không có trong file '+ file)
             thongbao = "Không có kết quả phù hợp"
             context = {
                 'thongbao' : thongbao,
             }
-
+    for i in input_content :  
+        noidung = Book.objects.values().filter(noi_dung=i)
+        res.append(list(noidung))
+        context = {
+            'res':res,
+            'name':name,
+        } 
+    # print("================",res)
 
     return render(request, 'pages/result.html', context)
 
