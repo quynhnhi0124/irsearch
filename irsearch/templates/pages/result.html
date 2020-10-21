@@ -10,6 +10,7 @@
         <h1 class = "display-4">Kết quả tìm kiếm</h1>
     </div>
     <div class="content">
+    {% if nd %}
         <table class = "table">
             <thead>
                 <tr>
@@ -21,13 +22,18 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope = "row">1</th>
-                    <td>Những người khốn khổ</td>
-                    <td>Victor Hugo</td>
-                    <td>1862</td>
+                {% for book in nd %}
+                    <th scope = "row">{{book.id}}</th>
+                    <td>{{book.ten_sach}}</td>
+                    <td>{{book.ten_tac_gia}}</td>
+                    <td>{{book.nam_xuat_ban}}</td>
+                {% endfor %}
                 </tr>
             </tbody>
         </table>
+        {% else %}
+            {{thongbao}}
+        {% endif %}
     </div>
 </div>
 

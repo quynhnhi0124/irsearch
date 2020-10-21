@@ -21,7 +21,8 @@
     <div class="container">
         <h1 class="display-4">Search Engine</h1>
         <p class="lead">Công cụ tìm kiếm trong file docx</p>
-        <form action="{% url 'result' %}">
+        <form action="{% url 'result' %}" method="POST">
+            {% csrf_token %}
             <div class="input-group search">
                 <input type="text" class = "form-control" name = "search" placeholder="Nhập vào...">
                 <button type="button" class="btn btn-outline-primary"><a href="{% url 'result' %}">Search</a></button>
