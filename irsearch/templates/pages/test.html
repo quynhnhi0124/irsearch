@@ -7,10 +7,17 @@
 
 <div class="container">
     <div class="head-thumbnail">
-        <h1 class = "display-4">Chi tiet tac pham</h1>
+        <h1 class = "display-4">Chi tiết tác phẩm</h1>
     </div>
     <div class="content">
-        <p class = "text-justify">{{file_content}}</p>
+        {% for i in t %}
+            <i><p>Tên tác phẩm: {{i.ten_sach}}</p>
+            <p>Tên tác giả: {{i.ten_tac_gia}}</p>
+            <p>Năm xuất bản: {{i.nam_xuat_ban}}</p></i>
+
+        {% endfor %}
+        <p><b>Nội dung: </b></p>
+        <p class = "text-justify">{{final}}</p>
     </div>
 </div>
 

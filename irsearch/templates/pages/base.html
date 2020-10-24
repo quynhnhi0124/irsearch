@@ -19,7 +19,7 @@
 
 <div class="jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Search Engine</h1>
+        <h1 class="display-4"><a style="color: white;" href="{% url 'index' %}">Search Engine</a></h1>
         <p class="lead">Công cụ tìm kiếm trong file docx</p>
         <form action="{% url 'result' %}" method="POST">
             {% csrf_token %}

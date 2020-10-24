@@ -4,6 +4,7 @@ from os import listdir
 from django.shortcuts import render
 # from django.http import HttpResponse
 # from django.views import View
+import docx
 from docx import Document
 from .models import Book
 # from docx import Document
@@ -20,7 +21,6 @@ def index_result(request):
     # file result
     input_content = []
     res = []
-    context = {}
     for file in files:
         document = Document('static//docxfile//' + file)
         fulltext = ''
@@ -66,12 +66,16 @@ def test(request, id = id):
     nd = Book.objects.values('noi_dung').filter(id = id) # lấy tên của sách (cột noi_dung) được chọn theo id
     vals = list(nd.values())[0]['noi_dung']
     print(vals)
-    f = open("static/docxfile/" + vals, "r", encoding = 'latin-1')
-    file_content = f.read()
-    f.close()
+    f = docx.Document("static/docxfile/" + vals)
+    file_content = []
+    for para in f.paragraphs:
+        file_content.append(para.text)
+    final = '\n'.join(file_content)
+    # f.close()
     context = {
         't' : t , 
         'file_content' :file_content ,
+        'final': final,
     }
     return render(request, 'pages/test.html', context)
 #sửa lỗi class has no 'objects' member

@@ -13,6 +13,9 @@ a{
     padding: 60px 0;
     
 }
+.jumbotron-fluid * a{
+    color: white !important;
+}
 
 .search button a{
     color: white;
